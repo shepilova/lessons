@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+
+	<script>
+
+
+   		const Cat = {
+   			name: 'Murzik',
+   			age: 1,
+   			hello()
+   			{
+   				console.log(`I am ${this.name}`);
+   			}
+   		}
+
+
+   		class Dog
+   		{
+   			static name = 'Sharik'
+   			static age = 2
+
+   			name = 'Bill'
+   			job = 'Programmer'
+   			
+   			static hello()
+   			{
+   				console.log(`I am ${this.name}`);
+   			}
+
+   			hello()
+   			{
+   				console.log('hello');
+   			}
+   		}
+
+
+   		console.log(Cat.name);
+
+   		console.log(Dog.name);
+   		console.log(Dog.job);
+
+   		const dog1 = new Dog();
+
+   		console.log(dog1);
+
+   		dog1.hello();
+
+   		Dog.hello();
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

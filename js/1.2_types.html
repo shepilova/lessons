@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+		// Number
+
+		let a = 10;
+		a = 10.5;
+
+		// String
+ 
+ 		let a2 = 'text';
+ 		a2 = "text";
+ 		a2 = `text`;
+ 		a2 = '10'; //string
+
+ 		let str = '<h1 class="title">text</h1>';
+ 		str = "<h1 class=\"title\">text</h1>";
+ 		str = '<h1>' + a + '</h1>'; // <h1>10.5</h1>
+
+ 		//ES6
+ 		str = `<h1>${a + 10}</h1>`;
+ 		str = `<h1>${ !a ? 'On' : 'Off' }</h1>`;
+
+ 		console.log(str);
+
+ 		//Undefined
+
+ 		let a3; //undefined
+
+ 		//Null
+
+ 		let a4 = null; //0 {}
+
+ 		//Boolean
+
+ 		let a5 = true; // > 0,1... 'text' 10 [] {} ' '
+ 		a5 = false; // 0 null undefined '' NaN
+
+ 		//OBJECT
+
+ 		//ES5
+ 		var arr = new Array(1,2,3);
+
+ 		//ES6
+ 		const arr2 = [1,2,3];
+ 		console.log(arr2);
+ 		console.log(arr2[1]);
+
+ 		const multArr = [1,2,3,
+ 							[4,5,
+ 								[6,7]
+ 							]
+ 						];
+ 		console.log(multArr);
+ 		console.log(multArr[3][2][1]);
+
+ 		const Collection = [
+ 			{title: 'Ukraine', count: 40},
+ 			{title: 'Russia', count: 120},
+ 			{title: 'Belarus', count: 19}
+ 		];
+
+ 		console.log(Collection);
+ 		console.log(Collection[0].title);
+
+ 		//Function
+
+ 		fn1();
+
+ 		function fn1(arg1, arg2)
+ 		{
+ 			//body function
+ 			console.log('hello fn1');
+ 		}
+
+ 		fn1(); //call
+ 		fn1(); //call
+
+ 		//ES6
+
+ 		//fn2();
+
+ 		const fn2 = function()
+ 		{
+ 			console.log('fn2');
+ 		}
+
+ 		fn2();
+
+ 		const fn3 = () => {}
+
+ 		const fn4 = (a, b) => a + b; //return
+
+ 		const fn5 = a => a;
+
+ 		//ES5
+ 		function Cat(name, color) //prototype
+ 		{
+ 			this.name = name;
+ 			this.color = color;
+ 		}
+
+ 		const Murzik = new Cat('Murzik', 'white');
+ 		const Barsik = new Cat('Barsik', 'black');
+
+ 		console.log(Murzik);
+ 		console.log(Barsik);
+
+ 		//Object
+
+ 		//ES5
+ 		var obj = new Object({
+ 			name: 'obj'
+ 		});
+
+ 		//ES6
+ 		const obj2 = {
+ 			name: 'obj2',
+ 			//getName: function()
+ 			//{
+ 			//	console.log(this.name)
+ 			//},
+ 			getName()
+ 			{
+ 				console.log(this.name);
+ 			}
+ 		}
+
+ 		class Dog
+ 		{
+ 			constructor(name, color)
+ 			{
+ 				this.name = name;
+ 				this.color = color;
+ 			}
+ 		}
+
+ 		const Sharik = new Dog('Sharik', 'black');
+ 		console.log(Sharik);
+
+ 		//Big int
+
+ 		let x = 10n;
+
+
+ 		//Convert type
+
+ 		let q = '10text', w = '20', r = 0;
+
+ 		let res = q + w;
+ 		console.log(res);
+
+ 		//Number(q);
+ 		//parseInt(q);
+ 		//+q
+
+ 		console.log(Number(q));
+ 		console.log(parseInt(q));
+
+ 		//String(q)
+ 		//q.toString()
+
+ 		//Boolean(q);
+
+ 		console.log(Boolean(q));
+ 		console.log(Boolean(r));
+
+ 		if(10 == true)
+ 			console.log('yes');
+ 		else
+ 			console.log('no');
+
+ 		let res2 = 'text' * 10;
+
+ 		console.log(res2); //Not A Number
+ 		console.log(isNaN(res2));
+
+ 		//Actions
+
+ 		// = // a = 10;
+ 		// == // 10 == '10' //true
+ 		// === // 10 === '10' //false
+ 		// != 
+ 		// ! // a = true // !a //false //not
+ 		// >
+ 		// <
+ 		// >=
+ 		// <=
+ 		// +
+ 		// -
+ 		// *
+ 		// /
+ 		// % // 10 % 3 = 1
+ 		// ** // 10 ** 2 = 100
+ 		// ++ // increment +1
+ 		// -- // decrement -1
+ 		// a += 2 // a = a + 2;
+ 		// && // And // 10 < 2 && 10 > 8 //false
+ 		// || // Or // 10 < 2 || 10 > 8 || 10 > 5 //true 10 > 8
+
+ 		//Naming
+
+ 		//Incorrect
+
+ 		//1a
+ 		//a-1
+ 		//#a
+
+ 		//Correct
+ 		//a_1
+ 		//a1
+ 		//_a
+ 		//$a
+ 		//$_a
+
+ 		//let a
+ 		//let A
+
+ 		//let name;
+ 		//let NAME;
+ 		//let Name;
+
+ 		let status = true;
+ 		let s_name = 'Ivanov';
+
+ 		const HOST = 'google.com';
+
+ 		const Products = ['prod1', 'prod2'];
+
+ 		const Person = {
+ 			name: 'Ivan'
+ 		}
+
+ 		class OrderForm
+ 		{
+
+ 		}
+
+ 		function saveData()
+ 		{
+ 		}
+
+ 		const getName = () => {
+ 		}
+
+ 		const x = () => {}
+
+ 		//saveData(getName);
+ 		//saveData(x);
+
+
+
+	</script>
+	
+</body>
+</html>

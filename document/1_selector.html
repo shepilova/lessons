@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<button id="btnid" class="btn" name="btnname">click1</button>
+	<button class="btn" name="btnname">click2</button>
+	<button class="btn" name="btnname">click3</button>
+
+
+
+	<script>
+
+		//ES5
+		//var El = document.getElementById('btnid');
+		//var El = document.getElementsByClassName('btn');
+		//var El = document.getElementsByName('btnname');
+		//var El = document.getElementsByTagName('button');
+
+		//ES6
+		const El = document.querySelector('.btn'); //#btnid [name="btnname"] button
+		//const El = document.querySelectorAll('.btn');
+		
+
+		/*El[0].style.background = 'green';
+		El[2].style.background = 'orange';
+		El[1].onclick = function()
+		{
+			alert('ok');
+		} */
+
+		/*El.forEach((btn) => {
+			btn.onclick = function()
+			{
+				this.textContent = 'CLICKED';
+				this.style.color = 'red';
+			}
+		}) */
+
+		El.onclick = function()
+		{
+			this.style.transform = `scale(2)`;
+			this.style.margin = `10px 20px`;
+			this.style.backgroundColor = `red`;
+			this.style.color = `white`;
+
+			// alert(this.className);
+		}
+
+		console.log(El);
+
+		function helloWorld(text) {
+			text = 'helloWorld'
+			console.log(text);
+		}
+
+		helloWorld()
+
+	</script>
+	
+</body>
+</html>

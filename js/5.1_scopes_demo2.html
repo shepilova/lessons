@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+ 		function generateZone(zone)
+ 		{
+ 			return function(domain)
+ 			{
+ 				return `https://${domain}.${zone}`
+ 			}
+ 		}
+
+ 		const zone1 = generateZone('com');
+
+ 		//const zone1 = function(){...}
+
+ 		console.log(zone1);
+
+ 		const domain1 = zone1('vk');
+
+ 		console.log(domain1);
+
+ 		const zone2  = generateZone('ua');
+
+ 		const domain2 = zone1('stb');
+
+ 		console.log(domain2);
+
+
+
+ 		function API(key)
+ 		{
+ 			if(key == 'admin123')
+ 			{
+ 				console.log('connect ok');
+ 				return function()
+ 				{
+ 					console.log('welcome');
+ 				}
+ 			}
+ 			return console.error('access denied')
+ 		}
+
+ 		const result = API('admin123');
+
+ 		result();
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

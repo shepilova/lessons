@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+ 		
+ 		//ES5
+ 		var obj = new Object({
+ 			name: 'obj'
+ 		});
+
+ 		//ES6
+ 		const obj1 = {
+ 			name: 'obj1'
+ 		}
+
+ 		const User = {
+ 			name: 'Bill',
+ 			age: 25,
+ 			isWork: false,
+ 			skills: ['html', 'js'],
+ 			switchWork()
+ 			{
+ 				this.isWork = !this.isWork;
+ 			},
+ 			helloMess(hello = 'Hello')
+ 			{
+ 				return `${hello}. My name is ${this.name} ${this.s_name}`
+ 			},
+ 			animals: {
+ 				cats: [
+ 					{
+ 						name: 'Murzik',
+ 						color: 'white'
+ 					},
+ 					{
+ 						name: 'Pushok',
+ 						color: 'black'
+ 					}
+ 				]
+ 			}
+ 		}
+
+ 		User.name = 'Billy';
+ 		User.s_name = 'Ivanov';
+ 		User.job = 'Programmer';
+
+ 		User.switchWork();
+
+ 		console.log(User.name);
+ 		console.log(User.job);
+ 		console.log(User.skills[1]);
+
+ 		User.skills.push('react');
+
+ 		
+
+ 		User.skills.forEach((elem) => {
+ 			document.write(`<h1>${elem}</h1>`);
+ 		})
+
+ 		console.log(User.helloMess('Good day'));
+
+ 		console.log(User.animals.cats[1].name);
+
+
+ 		User.animals.cats[1].age = 1;
+
+ 		User.animals.cats[0].say = function()
+ 		{
+ 			console.log(`I am ${this.name}. I say myau`);
+ 		}
+
+ 		User.animals.cats.push({name: 'Businka', color: 'grey'});
+
+ 		User.animals.cats.splice(1,1);
+
+ 		User.animals.cats[1].childs = [
+ 			{
+ 				name: 'Kitty'
+ 			}
+ 		]
+
+ 		User.animals.cats[0].say();
+
+ 		delete User.animals;
+
+ 		console.log(User);
+
+
+
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+ 		async function getData(api_key)
+ 		{
+ 			return new Promise(function(resolve, reject) {
+
+ 				if(api_key == 'admin123')
+ 				{
+ 				setTimeout(() => {
+ 					//let Data = ['text1', 'text2'];
+ 					const Products = [
+			  			{title: 'Orange', price: 12, cat: 1},
+			  			{title: 'Apple', price: 22, cat: 1},
+			  			{title: 'Tomat', price: 13, cat: 2},
+			  			{title: 'Banana', price: 32, cat: 1 },
+			  			{title: 'Beet', price: 3, cat: 2}
+			  		];
+
+ 					//resolve(Data);
+ 					//reject();
+
+ 					resolve(Products);
+ 				}, 2000);
+ 			    }
+ 			    else
+ 			    {
+ 			    	reject('Access denied');
+ 			    }
+ 				
+ 			})
+ 		}
+
+ 		/*getData().then(
+ 					(data) => { //resolve
+ 						console.log(data);
+ 					},
+ 					() => { //reject
+ 						console.error('error');
+ 					}
+ 				)*/
+
+ 		/*getData('admin123')
+ 			.then((data) => {
+ 				console.log(data);
+ 				return data.filter((elem) => elem.cat == 1);
+ 			})
+ 			.then((data) => {
+ 				console.log(data);
+ 				return data.map((elem) => elem.title);
+ 			})
+ 			.then((data) => {
+ 				console.log(data);
+ 				return data.map((elem) => `<h1>${elem}</h1>`)
+ 			})
+ 			.then((data) => {
+ 				console.log(data);
+ 				data.forEach((elem) => {
+ 					document.write(elem);
+ 				})
+ 			})
+ 			.catch((err) => {
+ 				console.error(err);
+ 			})
+
+ 			fetch(url)
+ 				.then((response) => response.json())
+ 				.then((data) => console.log(data))
+ 				.then((data) => data.filter((elem) => elem > 10))
+ 				.catch((err) => console.log(err)); */
+
+
+ 			/*const response = await fetch('url');
+ 			const data = await response.json();
+ 			const filtered = await data.filter((elem) => elem > 10);
+
+ 			console.log(data);
+
+ 			//Promise.all(fn1, fn2, fn3)
+
+ 			const promiseRes = await getData('admin123');
+ 			const cat1 = await promiseRes.filter((elem) => elem.cat == 1); */
+
+ 			console.log(cat1);
+
+
+
+
+	</script>
+	
+</body>
+</html>

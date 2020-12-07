@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dz_3</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+
+	<div class="container row">
+		<h3>Filter</h3>
+		<div class="col s3">
+   			<label>Category:</label>
+   			<select name="category" style="display: block;">
+   				<option value="0">All</option>
+   			</select>
+		</div>
+		<div class="col s3 offset-s1">
+   			<label>Sale:</label>
+   			<select name="sale" style="display: block;">
+   				<option value="0">All</option>
+   				<option value="1">Yes</option>
+   				<option value="2">No</option>
+   			</select>
+		</div>
+		<div class="col s3 offset-s1">
+   			<label>Available:</label>
+   			<select name="available" style="display: block;">
+   				<option value="0">All</option>
+   				<option value="1">Yes</option>
+   				<option value="2">No</option>
+   			</select>
+		</div>
+
+	</div>
+		<div class="collection"></div>
+
+	<script>
+		
+
+		const Category = [
+			{id: 1, title: 'Games'},
+			{id: 2, title: 'Alcohol'},
+		];
+
+		const Sale = [true, false];
+
+		const Available = [true, false];
+
+		const Goods = [
+			{title: 'Call of Duty', sale: 2, available: 1, c_id: 1},
+			{title: 'World of Tanks', sale: 1, available: 2, c_id: 1},
+			{title: 'Fifa', sale: 1, available: 1, c_id: 1},
+			{title: 'Warzone', sale: 1, available: 1, c_id: 1},
+			{title: 'Assasin', sale: 1, available: 2, c_id: 1},
+			{title: 'Thief', sale: 1, available: 1, c_id: 1},
+			{title: 'Cyberpunk', sale: 2, available: 1, c_id: 1},
+			{title: 'Hitman', sale: 2, available: 2, c_id: 1},
+			{title: 'Brandy', sale: 1, available: 1, c_id: 2},
+			{title: 'Vodka', sale: 2, available: 1, c_id: 2},
+			{title: 'Whiskey', sale: 1, available: 2, c_id: 2},
+			{title: 'Wine', sale: 1, available: 1, c_id: 2},
+			{title: 'Cha-Cha', sale: 2, available: 1, c_id: 2},
+			{title: 'Beer', sale: 2, available: 1, c_id: 2},
+			{title: 'Tequila', sale: 2, available: 2, c_id: 2},
+			{title: 'Cognac', sale: 1, available: 1, c_id: 2}, 
+		];
+
+		const Sel = document.querySelectorAll('select');
+		const Table = document.querySelector('.collection');
+
+		//0 all
+		//1 category 1 sale true
+		//2 category 2 sale false
+
+
+		const Model = {
+			category: 0,
+			sale: 0,
+			available: 0
+		}
+
+
+		Sel.forEach((select) =>
+		{
+			select.onchange = function()
+			{
+				Model[this.name] = +this.value;
+
+				console.log(Model);
+
+				filterData();
+			}
+		});
+
+		function filterData() 
+		{
+			let Results;
+			if(Model.category != 0 && Model.sale == 0 && Model.available == 0)
+				Results = Goods.filter((elem) => elem.c_id == Model.category)
+			else if(Model.category != 0 && Model.sale != 0 && Model.available == 0)
+				Results = Goods.filter((elem) => elem.c_id == Model.category && elem.sale == Model.sale);
+			else if(Model.category != 0 && Model.sale != 0 && Model.available != 0)
+				Results = Goods.filter((elem) => elem.c_id == Model.category && elem.sale == Model.sale && elem.available == Model.available);
+			else if(Model.category == 0 && Model.sale != 0 && Model.available == 0)
+				Results = Goods.filter((elem) => elem.sale == Model.sale);
+			else if(Model.category == 0 && Model.sale != 0 && Model.available != 0)
+				Results = Goods.filter((elem) => elem.sale == Model.sale && elem.available == Model.available);
+			else if(Model.category == 0 && Model.sale == 0 && Model.available != 0)
+				Results = Goods.filter((elem) => elem.available == Model.available);
+
+			renderGoods(Results);
+
+		}
+
+		function renderSelect() 
+		{
+			Category.forEach((elem) => 
+			{
+				Sel[0].innerHTML += `<option value="${elem.id}">${elem.title}</option>`
+			});
+		}
+
+		function renderGoods(Data = Goods) 
+		{
+			Table.innerHTML = '';
+			Data.forEach((elem) => 
+			{
+				Table.innerHTML += `<div
+					class="collection-item" value="${elem.id}">
+					<h4>${elem.title}</h4>
+									</div>`
+			});
+		};
+
+		renderSelect();
+		renderGoods();
+
+
+	</script>
+	
+</body>
+</html>

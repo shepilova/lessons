@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+   		const Countrys = ['Ukraine', 'France', 'Germany', 'Japan'];
+
+   		//let a = Countrys[0];
+   		//let b = Countrys[1];
+
+   		//ES6
+   		//Rest
+
+   		let [a, b, ...c] = Countrys;
+
+   		console.log(a, b, c);
+
+   		const User = {
+   			name: 'Vasya',
+   			age: 32,
+   			job: 'Manager',
+   			city: 'Kiev'
+   		}
+
+   		//let name = User.name;
+   		//let age = User.age;
+
+   		let {name, job, ...other} = User;
+
+   		console.log(name, job, other);
+
+   		function hello({name, job, ...other})
+   		{
+   			console.log(`Hello. I am ${name}. My job ${job}`);
+   			console.log('other', other);
+   		}
+
+   		hello(User);
+
+   		//import { Component } from 'react'; //Component
+   		//import React from 'react'; // React.Component
+
+   		//Spread
+
+   		const Countrys2 = ['USA', 'China', 'Korea'];
+
+   		//const All = Countrys.concat(Countrys2);
+
+   		const All = [...Countrys, 'Spain', ...Countrys2, 'England'];
+
+   		console.log(All);
+
+   		const Info = {
+   			country: 'Ukraine',
+   			index: '01001',
+   			street: 'Grushevskogo 123'
+   		}
+
+   		const AllObj = {...User, cat: 'Murzik', ...Info}
+
+   		console.log(AllObj);
+
+   		const User2 = { ...User, cat: 'Barsik' }
+
+   		User2.name = 'Dima';
+
+   		console.log(User2);
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

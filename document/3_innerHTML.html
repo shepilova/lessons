@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+
+	<div class="container">
+   		<h3>Render HTML</h3>
+		<input type="text">
+		<button class="btn blue">Add</button>
+		<ul>
+			<h1>Lorem ipsum, dolor.</h1>
+		</ul>
+	</div>
+
+
+	<script>
+
+		const Input = document.querySelector('input');
+		const Btn = document.querySelector('button');
+		const List = document.querySelector('ul');
+
+		Btn.onclick = function()
+		{
+			//List.innerHTML += `<li>${Input.value}</li>`;
+			//List.innerText += `<li>${Input.value}</li>`; //textContent
+
+			const li = document.createElement('h1');
+			li.textContent = Input.value;
+			List.append(li); //add end
+			// List.prepend(li);
+			// List.append('<h2>item</h2>');
+
+			// List.innerHTML = '<h1>test</h1>';
+		}
+
+
+
+
+	</script>
+	
+</body>
+</html>

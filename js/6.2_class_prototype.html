@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+
+
+	<script>
+
+		//ES6+
+
+  		class User
+  		{
+  			citizen = 'Ukraine'
+
+  			constructor(name, age, gender = 'men')
+  			{
+  				this.name = name;
+  				this.age = age;
+  				this.gender = gender;
+  			}
+
+  			hello()
+  			{
+  				console.log(`Hello. I am ${this.name}`)
+  			}
+  		}
+
+
+  		const Alex = new User('Alex', 25);
+
+  		const Anna = new User('Anna', 23, 'women');
+
+  		console.log(Alex);
+  		console.log(Anna);
+
+
+
+
+	</script>
+	
+</body>
+</html>

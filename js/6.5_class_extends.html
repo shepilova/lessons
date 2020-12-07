@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+  		class User
+  		{
+  			constructor(name, age = 18)
+  			{
+  				this.name = name;
+  				this.age = age;
+  			}
+
+  			hello()
+  			{
+  				console.log('hello parrent');
+  			}
+  			
+  		}
+
+  		class Programmer extends User
+  		{
+  			//name = 'Test'
+
+  			constructor(name, level, skills)
+  			{
+  				super(name);
+  				this.level = level;
+  				this.skills = skills;
+  			}
+
+  			hello()
+  			{
+  				super.hello();
+  				 console.log(`Hello. My name is ${this.name}. I cool ${this.level} programmer. My skills ${this.skills}`)
+  			}
+
+  		}
+
+
+  		class Manager extends User
+  		{
+  			constructor(name, age, type)
+  			{
+  				super(name, age);
+  				this.type = type;
+  			}
+  		}
+
+
+  		const Elena = new Programmer('Elena', 'Middle', ['js', 'react']);
+
+  		Elena.hello();
+
+  		console.log(Elena);
+
+
+  		const Bill = new Manager('Bill', 25, 'IT');
+
+  		console.log(Bill);
+
+  		Bill.hello();
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

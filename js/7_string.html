@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+  		
+  		let str = new String('   Hello World World!    ');
+
+  		console.log(str);
+
+  		console.log(str.toLowerCase())
+  		console.log(str.toUpperCase())
+
+  		console.log(str.replace('World', 'Elena'));
+
+  		console.log(str.search('World'));
+  		console.log(str.indexOf('World'));
+  		console.log(str.includes('World'));
+
+  		let pattern = /^[0-9]$/;
+
+  		let str2 = '55';
+
+  		if(str2.search(pattern) != -1)
+  			console.log('ok');
+  		else
+  			console.log('incorrect');
+
+
+  		console.log(str.repeat(3))
+  		console.log(str.trim());
+  		console.log(str.trimStart());
+  		console.log(str.trimEnd());
+
+  		console.log(str.bold());
+
+  		console.log(str.substring(4));
+  		console.log(str.substring(2, 5));
+  		console.log(str.slice(2, 5));
+
+  		const str5 = 'text X text text X text text';
+
+  		let result = [];
+  		str5.split(' ').forEach((elem) => {
+  			if(elem == 'X')
+  				result.push('***');
+  			else
+  				result.push(elem);
+  		});
+
+  		console.log(result.join(' '));
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

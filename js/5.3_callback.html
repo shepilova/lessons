@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+ 		let a = 10;
+
+ 		/*setTimeout(() => {
+ 			a = 20;
+ 		}, 5000);
+
+
+ 		console.log(a);
+
+		*/
+
+		let Data;
+
+		function getData(callback)
+		{
+			setTimeout(() => {
+				Data = ['text1', 'text2'];
+				callback();
+			}, 2000);
+
+			//setTimeout(fn, time)
+		}
+
+		/*getData(function() {
+			Data.forEach((elem) => {
+				console.log(elem);
+			})
+		});*/
+
+		//getData(render);
+
+		/*getData(() => {
+			Data.forEach((elem) => {
+				console.log(elem);
+			})
+		})*/
+
+		function render()
+		{
+			Data.forEach((elem) => {
+				console.log(elem);
+			})
+		}
+
+
+		function fn1(callback)
+		{
+			setTimeout(() => {
+				console.log('step1');
+				callback();
+			}, 1000)
+		}
+
+		function fn4(callback)
+		{
+			setTimeout(() => {
+				console.log('step4');
+				callback();
+			}, 1000)
+		}
+
+		function fn2(callback)
+		{
+			setTimeout(() => {
+				console.log('step2');
+				callback();
+			}, 1000)
+		}
+
+		function fn3(callback)
+		{
+			setTimeout(() => {
+				console.log('step3');
+				callback();
+			}, 1000)
+		}
+
+
+		//CALLBACKS HELL
+		
+		fn1(() => {
+			/*fn22(() => {
+
+			}) */
+			fn2(() => {
+				fn3(() => {
+					fn4(() => {
+						console.log('final');
+					})
+				})
+			})
+		})
+
+
+
+		
+
+
+	</script>
+	
+</body>
+</html>

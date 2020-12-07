@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<div> 
+		<ul>
+    		<li>item</li>
+    		<li class="test">item</li>
+    		<li>item</li>
+    		<li>item</li>
+		</ul>
+	</div>
+
+	<h1>Lorem, ipsum.</h1>
+
+
+	<script>
+
+  		const El = document.querySelector('.test');
+
+  		console.log(El);
+
+  		document.onclick = function()
+  		{
+  			//El.style.background = 'green';
+  			//El.children[0].style.background = 'green';
+  			//El.children[0].children[2].style.background = 'green';
+  			//El.querySelector('.test').style.color = 'red';
+
+  			El.previousElementSibling.style.color = 'red';
+  			El.nextElementSibling.nextElementSibling.style.color = 'green';
+
+  			//l.parentElement.style.background = '#aaa';
+  			//El.parentElement.parentElement.style.background = '#aaa';
+  			//El.parentElement.parentElement.nextElementSibling.style.background = '#aaa';
+  			El.parentElement.parentElement.nextElementSibling.remove();
+  		}
+
+
+	</script>
+
+	
+</body>
+</html>

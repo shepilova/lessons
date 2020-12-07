@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<h1>0</h1>
+	<button>click</button>
+
+
+
+	<script>
+
+		let counter = 0;
+
+		const Btn = document.querySelector('button');
+
+		const Out = document.querySelector('h1');
+
+
+		function Counter()
+		{
+			console.log('ok');
+			//if(counter > 5)
+				//Btn.onclick = null;
+			if(counter > 5)
+				Btn.removeEventListener('click', Counter);
+			
+			counter++;
+			Out.textContent = counter;
+		}
+
+
+		/*Btn.onclick = function()
+		{
+			console.log('ok');
+
+			if(counter > 5)
+				Btn.onclick = null;
+			
+			counter++;
+			Out.textContent = counter;
+				
+		} */
+
+		//Btn.onclick = Counter;
+
+		Btn.addEventListener('click', Counter);
+
+
+	</script>
+	
+</body>
+</html>

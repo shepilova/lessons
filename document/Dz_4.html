@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dz_4</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+	
+	<style type="text/css">
+		.registration
+		{	
+			position: relative;
+			width: 400px;
+			display: block;
+			margin: 40px 100px;
+			text-align: center;
+			border: 1px solid #ccc;
+			padding: 15px;
+		}
+		.input-field
+		{	
+			margin-top: 1.5rem;
+		}
+		.active
+		{
+			font-size: 15px;
+		}
+		.message
+		{
+			position: relative;
+			width: 400px;
+			margin: 40px 100px;
+			font-size: 20px;
+		}
+
+	</style>
+
+	<form action="" method="post" class="validate-form">
+		<div class="registration">
+		    <div class="input-field col s6">
+		      <input value="" id="login" type="text" class="validate" autocomplete="off">
+		      <label class="active" for="login">Login</label>
+		    </div>
+		    <div class="input-field col s6">
+		      <input value="" id="email" type="text" class="validate" autocomplete="off">
+		      <label class="active" for="email">Email</label>
+		    </div>
+		    <div class="input-field col s6">
+		      <input value="" id="password-1" type="password" class="validate">
+		      <label class="active" for="password-1">Password</label>
+		    </div>
+		    <div class="input-field col s6">
+		      <input value="" id="password-2" type="password" class="validate">
+		      <label class="active" for="password-2">Repeat Password</label>
+		    </div>
+		    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+	    		<i class="material-icons right">send</i>
+	  		</button>
+	  	</div>
+  	</form>
+
+  	<div>
+  		<p class="message"></p>
+  	</div>
+
+
+	<script>
+		
+		const Form = document.querySelector('.validate-form');
+		const Message = document.querySelector('.message');
+
+		const login = document.querySelector('#login');
+		const email = document.querySelector('#email');
+		const pass1 = document.querySelector('#password-1');
+		const pass2 = document.querySelector('#password-2');
+
+		const submit = document.querySelector('.btn');
+		const Inputs = document.querySelectorAll('input');
+
+		const Model = {
+			login: '',
+			email: '',
+			password: '',
+		};
+
+		let Data = [];
+
+		Form.onsubmit = function (event)
+		{
+			event.preventDefault();
+
+		};
+
+		function renderMessage(message) {
+			
+		}
+		
+		function clearForm() {
+			Inputs.forEach((elem) => {
+				elem.value = '';
+			});
+		};
+
+		function ifBlank() {
+			Inputs.forEach((elem) => {
+				if (!elem.value) 
+				{
+					console.log('field is blank', elem);
+					Message.classList.add('red-text');
+					Message.textContent = "Fill in all fields"
+				}
+				else 
+				{	
+					Message.classList.add('green-text');
+					Message.textContent = 'hhh';
+				}
+			});
+		};
+
+	</script>
+	
+</body>
+</html>

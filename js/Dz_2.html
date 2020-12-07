@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dz_2</title>
+</head>
+<body>
+
+	<script>
+		
+		console.log('1------------------------1')
+		//1 ---------------- 1
+		const Nums = [32, 34, 12, 4, 7, 8, 12, 98, 1, 5, 213, 3];
+		let max_1 = Nums[0],
+			min_1 = Nums[0];
+
+		for(let i = 0; i < Nums.length; i++) {  
+			if (Nums[i] > max_1) {					//MAX
+				max_1 = Nums[i];
+			} 
+
+			if (Nums[i] < min_1) {					//MIN
+				min_1 = Nums[i];
+			} 
+		}
+
+		console.log(`Max = ${max_1}`);
+		console.log(`Min = ${min_1}`);
+
+		//---
+
+		let max_2 = Nums[0],
+			min_2 = Nums[0];
+
+		Nums.forEach((elem, i) => {
+			if (elem > max_2) {					//MAX
+				max_2 = elem;
+			}
+
+			if (elem < min_2) {					//MIN
+				min_2 = elem;
+			}
+		});
+
+		console.log('---')
+		console.log(`Max = ${max_2}`);
+		console.log(`Min = ${min_2}`);
+
+
+
+
+		console.log('2------------------------2')
+		//2 ---------------- 2
+		const Countrys = [
+			{name: 'Russia', population: 146000000}, 
+			{name: 'Ukraine', population: 45000000}, 
+			{name: 'Belarus', population: 9500000},
+		];
+
+		let total_1 = 0,
+			middle_1 = 0;
+
+		for(let i = 0; i < Countrys.length; i++) {
+			total_1 += Countrys[i].population;
+		}
+
+		middle_1 = total_1 / Countrys.length;
+
+		console.log(`Общая численность населения всех стран =  ${total_1}`);
+		console.log(`Средняя численность на населения всех стран = ${middle_1.toFixed(3)}`);
+
+		//---
+
+		let total_2 = 0,
+			middle_2 = 0;
+
+		Countrys.forEach((elem) => {
+			total_2 += elem.population;
+		});
+
+		middle_2 = total_2 / Countrys.length;
+
+		console.log('---');
+		console.log(`Общая численность населения всех стран =  ${total_2}`);
+		console.log(`Средняя численность на населения всех стран = ${middle_2.toFixed(3)}`);
+
+
+
+
+		console.log('3------------------------3')
+		//3 ---------------- 3
+		const Products = [
+			{title: 'Orange', price: 12, category: 'fruits'}, 
+			{title: 'Apple', price: 15, category: 'fruits'}, 
+			{title: 'Potato', price: 12, category: 'vegetables'}, 
+			{title: 'Pear', price: 14, category: 'fruits'}, 
+			{title: 'Tomato', price: 21, category: 'vegetables'}
+		];
+		// console.log(Products);
+
+		Products.push({title: 'Melon', price: 18, category: 'fruits'});
+		// console.log(Products);
+
+		Products.splice(4, 0, {title: 'Beet', price: 13, category: 'vegetables'});
+		// console.log(Products);
+
+		let fruits_1 = [],
+			vegetables_1 = [];
+
+		for(let i = 0; i < Products.length; i++) {
+			if (Products[i].category == 'fruits') {
+				fruits_1.push(Products[i]);
+			} 
+			if (Products[i].category == 'vegetables') {
+				vegetables_1.push(Products[i]);
+			}
+		}
+
+		console.log(fruits_1);
+		console.log(vegetables_1);
+
+		//---
+
+		let fruits_2 = [],
+			vegetables_2 = [];
+
+
+		Products.forEach((elem, index) => {
+			if (elem.category == 'fruits') {
+				fruits_2.push(Products[index]);
+			}
+			if (elem.category == 'vegetables') {
+				vegetables_2.push(Products[index]);
+			}
+		});	
+
+		console.log('---')
+		console.log(fruits_2);
+		console.log(vegetables_2);
+
+		//---
+		let fruits_3 = [],
+			vegetables_3 = [];
+
+
+		fruits_3 = Products.filter((elem) => elem.category == 'fruits');
+		vegetables_3 = Products.filter((elem) => elem.category == 'vegetables');
+
+		console.log('---');
+		console.log(fruits_3);
+		console.log(vegetables_3);
+
+
+
+
+
+		console.log('4------------------------4')
+		//4 ---------------- 4
+		const Names = ['Artem', 'Dima', 'Valentin', 'Valeriy', 'Artur', 'Danil', 'Gena', 'Anna', 'Olga'];
+		let nameCapitalA;
+
+		capitalA = Names.filter((elem) => elem.includes('A'));
+
+		console.log(capitalA);
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

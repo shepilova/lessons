@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<button name="btnname
+
+
+	const Btn = document.querySelector('button');
+
+	console.log(Btn);">Click me</button>
+
+	<script>
+
+		//console.log(this);
+
+		/*const Bill = {
+			name: 'Bill',
+			getInfo()
+			{
+				console.log(this);
+			},
+			cat: {
+				name: 'Murzik',
+				getInfo()
+				{
+					console.log(this.name);
+				}
+			}
+
+		}
+
+		Bill.cat.getInfo(); */
+
+		function getInfoFn(param1, param2)
+		{
+			//console.log(this.name, param1, param2);
+
+			console.log(this);
+		}
+
+
+		const John = {
+			name: 'John',
+			//getInfo: getInfoFn
+			/*getInfo()
+			{
+				console.log(this.name);
+			} */
+		}
+
+		const Alisa = {
+			name: 'Alisa',
+			//getInfo: getInfoFn
+			getInfo()
+			{
+				console.log(this.name);
+			} 
+		}
+
+		///John.getInfo();
+
+		//getInfoFn(); //window
+		//getInfoFn.call(John, 'text1', 'text2');
+		//getInfoFn.apply(Alisa, ['text1', 'text2']);
+
+		//const testFn = getInfoFn.bind(John, 'text1', 'text2');
+
+
+		const Btn = document.querySelector('button');
+
+		/*Btn.onclick = function()
+		{
+			console.log(this.name);
+		} */
+
+		//Btn.onclick = Alisa.getInfo.bind(John);
+		/*Btn.onclick = function()
+		{
+			console.log(this);
+		} */
+
+		Btn.onclick = () => console.log(this);
+
+		
+
+	</script>
+</body>
+</html>

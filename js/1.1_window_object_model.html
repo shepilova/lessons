@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<button>click</button>
+	<button>click2</button>
+
+
+	<script>
+
+		console.log(window);
+
+		const Products = ['Orange', 'Apple'];
+
+		console.log(Products);
+
+		const User = {
+			name: 'Bill'
+		}
+
+		console.log(User);
+
+		const Str = new String('Hello world');
+
+		console.log(Str);
+
+		const Buttons = document.querySelectorAll('button');
+
+		console.log(Buttons);
+
+		Buttons[0].style.background = 'green';
+
+		console.log(console);
+
+		let url = window.location.pathname.split('/').pop().toUpperCase().bold();
+
+		console.log(url);
+
+		Buttons[0].onclick = function()
+		{
+			//alert(this.textContent);
+
+			// this.textContent = 'CLICKED';
+			this.textContent = this.textContent.toUpperCase(); //the same as previous
+			console.log(this.textContent);
+			this.style.background = 'orange';
+		}
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

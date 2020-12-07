@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<a href="https://google.com" data-id="1" data-title="test">Google link</a>
+
+
+	<script>
+
+		const a = document.querySelector('a');
+
+		document.onclick = () => {
+			//a.href = 'https://apple.com';
+			//a.textContent = 'Apple link';
+			//a.title = 'This link for Apple';
+
+			//alert(a.href);
+
+			//a.setAttribute('href', 'https://apple.com');
+			//alert(a.getAttribute('href'));
+
+			//a.href = null; //incorrect
+			//a.removeAttribute('href');
+
+			//a.src = 'test';
+			//a.setAttribute('src', 'test');
+			//a.setAttribute('style', 'color: red');
+
+			alert(a.dataset.id);
+			alert(a.getAttribute('data-title'));
+		}
+  		
+
+
+
+
+	</script>
+	
+</body>
+</html>

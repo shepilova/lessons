@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dz_1</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+
+	<style>
+   			
+   			i
+   			{
+   				opacity: .7;
+   			}
+
+   			i:hover
+   			{
+   				opacity: 1;
+   				color: #004c5d;
+   			}
+
+   			.dot 
+   			{
+   				margin: 0 10px;
+   				cursor: pointer;
+   			}
+
+   			.active
+   			{
+   				color: red;
+   			}
+
+	</style>
+
+	<div style="display: flex; justify-content: center; align-items: center;">
+
+		<i class="medium material-icons back" style="cursor: pointer;">arrow_back</i>
+		<img src="../images/img_1.jpg" alt="" height="400px" style="margin: 20px 40px">
+		<i class="medium material-icons next" style="cursor: pointer;">arrow_forward</i>
+
+	</div>
+
+	<div class="dotsRow" style="display: flex; justify-content: center;">
+
+		<!-- <i class="tiny material-icons dot" style="cursor: pointer;">fiber_manual_record</i> -->
+		
+	</div>
+
+
+
+	<script type="text/javascript">
+		
+		const imagesPath = 
+		[
+			'../images/img_1.jpg',
+			'../images/img_2.jpg',
+			'../images/img_3.jpg',
+			'../images/img_4.jpg',
+			'../images/img_5.jpg',
+		];
+		//Users/elena/Desktop/Lessons/images/img_1.jpg
+
+		const Img = document.querySelector('img');
+		const nextBtn = document.querySelector('.next');
+		const backBtn = document.querySelector('.back');
+		let dotsRow = document.querySelector('.dotsRow');
+		let currentSlide = 0;
+
+		function renderDots() {
+			for (i = 0; i < imagesPath.length; i++) 
+			{	
+				const dot = document.createElement('i');
+				dot.classList = "tiny material-icons dot";
+				dot.textContent = "fiber_manual_record";
+				dotsRow.append(dot);
+			}
+			initDots()
+		}
+
+		function clearDots(index)
+		{
+			const Dots = document.querySelectorAll('.dot');
+
+			Dots.forEach((elem) => elem.classList.remove('active'))
+
+			Dots[index].classList.add('active');
+		}
+
+
+		function initDots () 
+		{
+			document.querySelectorAll('.dot').forEach(function(elem, index) {
+
+				elem.onclick = function () 
+				{
+					currentSlide = index;
+					
+					renderSlide();
+					
+				}
+			});
+		}
+		
+		renderDots()
+
+
+
+		console.log(dotsRow)
+
+		function renderSlide() {
+
+			clearDots(currentSlide);
+
+			Img.src = imagesPath[currentSlide];
+		}
+
+		function nextSlide() {
+			if (currentSlide == imagesPath.length-1) 
+				currentSlide = 0;
+			else
+				currentSlide++;
+			renderSlide()
+			// dotsArray[currentSlide].classList.add("active")
+		};
+
+		function previousSlide() {
+			if (currentSlide == 0) 
+				currentSlide = (imagesPath.length-1);
+			else
+				currentSlide--;
+			renderSlide();
+		};
+
+		function active() 
+		{
+			this.classList.toggle('active');
+		};
+
+		// images
+		imagesPath.forEach((elem) => {
+			document.write(`<img src=${elem} alt="" width='300px' style="margin: 30px 10px">`)
+		});
+
+		nextBtn.onclick = nextSlide;
+		backBtn.onclick = previousSlide;
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		console.log('- - Task 1 - -')
+		
+		let Nums = [120, 32, 34 ,56 ,78 ,98 ,12 ,3 ,1 ,23];
+
+		function arrayParam (array, param) {
+
+			let min = array[0];
+			let max = array[0];
+
+			const findMin = (array) => {
+
+				for(let i = 0; i < array.length; i++) {  
+			
+					if (array[i] < min) {	            //MIN
+						min = array[i];
+					};
+				};
+				return min;
+			}; 
+
+			const findMax = (array) => {
+
+				for(let i = 0; i < array.length; i++) {  
+		
+					if (array[i] > max) {	            //MAX
+						max = array[i];
+					};
+				};
+				return max;
+			};
+
+			const findMiddle = (array) => {
+
+				sumOfElem = 0;
+
+				for(let i = 0; i < array.length; i++) {  //MIDDLE
+					sumOfElem += array[i];
+				}
+				let middle = sumOfElem/array.length;
+				return middle;
+			}
+
+			if (param == 'min') {
+				return findMin(array);
+			}
+			if (param == 'max') {
+				return findMax(array);
+			}
+			if (param == 'middle') {
+				return findMiddle(array);
+			}
+		}
+
+		console.log(arrayParam(Nums, 'middle'));
+
+
+		function calcFn(arr, type)
+		{
+			function minFn()
+			{
+			}
+
+			function middleFn()
+			{
+			}
+
+			function maxFn()
+			{
+			}
+
+			let result; //undefined
+			switch(type)
+			{
+				case 'min': result = minFn; break;
+				case 'middle': result = middleFn; break;
+				case 'max': result = maxFn; break; 
+			}
+
+			return result;
+		}
+
+		//const minF = calcFn(Nums, 'min');
+
+		//minF();
+
+		//const middleF = calcFn(Nums, 'middle');
+
+
+
+		//2----------------------2
+		console.log('- - Task 2 - -')
+
+		function getTodos (apiKey, complete) 
+		{
+			return new Promise(function(resolve, reject) {
+
+				if(apiKey == 'passw') 
+				{
+					setTimeout(() => {
+						/*const toDo = [
+							{title: "todo1", date: "2020-01-01", complete: true},
+							{title: "todo2", date: "2020-01-22", complete: false},
+							{title: "todo3", date: "2020-02-04", complete: false},
+							{title: "todo4", date: "2020-02-12", complete: true},
+							{title: "todo5", date: "2020-02-21", complete: false},
+							{title: "todo6", date: "2020-03-04", complete: true},
+							{title: "todo7", date: "2020-04-02", complete: false},
+							{title: "todo8", date: "2020-05-07", complete: true},
+						]; */
+
+						const toDo = `[
+
+										{"title": "todo1", "date": "2020-01-01", "complete": true},
+
+										{"title": "todo2", "date": "2020-01-22", "complete": false},
+
+										{"title": "todo3", "date": "2020-02-04", "complete": false},
+
+										{"title": "todo4", "date": "2020-02-12", "complete": true},
+
+										{"title": "todo5", "date": "2020-02-21", "complete": false},
+
+										{"title": "todo6", "date": "2020-03-04", "complete": true},
+
+										{"title": "todo7", "date": "2020-04-02", "complete": false},
+
+										{"title": "todo8", "date": "2020-05-07", "complete": true}
+
+										]`;
+
+						resolve([toDo, complete]);
+					}, 1000);
+				} 
+				else 
+				{
+					reject('Wrong ApiKey');
+				};
+			});
+		};
+
+		/*getTodos('passw', false)
+			.then((data) => {
+				console.log(data)
+				return JSON.stringify(data);
+			})
+			.then((data) => {
+				console.log(data)
+				return JSON.parse(data);
+			})
+			.then((data) => {
+				console.log(data)
+				const completed = [];
+				data.forEach((elem) => {
+					if (elem.complete == false) {
+						completed.push(elem)
+					}
+				})
+				return completed
+			})
+			.then((data) => {
+				console.log(data)
+				const date_02 = [];
+				data.forEach((elem) => {
+					if (elem.date.split("-")[1] == '02') {
+						date_02.push(elem)
+					} 
+				})
+				console.log(date_02)
+				return date_02
+			})
+			.catch((error) => {
+				console.log(error)
+			}) */
+
+		// console.log(getTodos('passw'))
+
+		getTodos('passw', true)
+			.then((data) => {
+				console.log(data);
+				return [JSON.parse(data[0]), data[1]];
+			})
+			.then((data) => {
+				console.log(data);
+				return data[0].filter((elem) => elem.complete == data[1])
+			})
+			.then((data) => {
+				console.log(data);
+				return data.filter((elem) => elem.date.split('-').splice(1,1) == '02');
+			})
+			.then((data) => {
+				console.log(data);
+
+				data.forEach((elem) => {
+					console.log(elem.title);
+				})
+			})
+
+
+	</script>
+
+	
+</body>
+</html>

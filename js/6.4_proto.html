@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+
+	<script>
+ 		
+ 		/*Object.prototype.hello = function()
+ 		{
+ 			console.log('Hello I am Object');
+ 		}
+
+ 		const User = {
+ 			name: 'Vasya'
+ 		}
+
+ 		console.log(User);
+
+ 		User.hello();
+
+ 		Array.prototype.test = 'test value';
+
+ 		const Arr = ['Ukraine', 'Germany'];
+
+ 		console.log(Arr);
+
+ 		Arr.hello(); */
+
+
+ 		function User(name, age)
+ 		{
+ 			this.name = name;
+ 			this.age = age;
+ 		}
+
+ 		function Programmer(level, skills)
+ 		{
+ 			this.level = level;
+ 			this.skills = skills;
+ 			this.hello = function()
+ 			{
+ 				console.log(`Hello. My name is ${this.name}. I cool ${this.level} programmer. My skills ${this.skills}`)
+ 			}
+ 		}
+
+
+ 		// function Manager(type, worktime)
+ 		// {
+ 		// 	this.type = type;
+ 		// 	this.worktime = worktime;
+ 		// }
+
+ 		// User.prototype.city = 'Kiev';
+
+ 		const Info = {
+ 			country: 'Ukraine',
+ 			city: 'Kiev'
+ 		}
+
+ 		const Elena = new Programmer('Middle', ['html', 'js', 'react']);
+ 		Elena.__proto__ = new User('Elena', 18);
+ 		
+ 		// Elena.__proto__.__proto__ = new Manager('IT', '9:00 - 18:00');
+
+ 		Elena.hello();
+
+ 		console.log(Elena.name);
+
+ 		Elena.name = 'Lena';
+ 		console.log(Elena.name);
+
+
+ 		Elena.__proto__ = Info;
+
+ 		Elena.__proto__.city = 'Odessa';
+
+ 		Elena.hello();
+
+ 		console.log(Elena);
+ 		console.log(Elena.name);
+
+ 		// const Bill = new Manager('IT', '8:00 - 18:00');
+
+ 		// Bill.__proto__ = new User('Bill', 25);
+
+ 		// console.log(Bill);
+ 		// console.log(Bill.name);
+ 		// console.log(Bill.city);
+
+
+ 		// console.log(Info);
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

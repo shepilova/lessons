@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+
+
+	<div class="container">
+		<h3 class="blue-text">Search Language App</h3>
+  		<input type="text" placeholder="Search text">
+
+  		<div class="collection">
+  			
+
+  		</div>
+	</div>
+
+
+	<script>
+ 		
+ 		const Langs = ['C', 'PHP', 'JS', 'HTML', 'CSS', 'Python', 'C++', 'Java', 'C#', 'Pascal', 'Basic', 'Kotlin', 'TS', 'React', 'Vue', 'Bootstrap'];
+
+ 		const Input = document.querySelector('input');
+ 		const Table = document.querySelector('.collection');
+
+ 		//Example1
+ 		/*function render()
+ 		{
+ 			Langs.forEach((elem) => {
+ 				Table.innerHTML += `<div class="collection-item">
+						  				<h4>${elem}</h4>
+						  			</div>`
+ 			})
+ 		}
+
+ 		render();
+
+ 		Input.onkeyup = function()
+ 		{
+ 			document.querySelectorAll('.collection-item').forEach((elem) => {
+ 				//console.log(elem.children[0].textContent);
+
+ 				//if(elem.children[0].textContent.toLowerCase().search(this.value.toLowerCase()) != -1)
+ 				if(elem.children[0].textContent.toLowerCase().includes(this.value.toLowerCase()))
+ 					elem.style.display = 'block';
+ 				else
+ 					elem.style.display = 'none';
+ 			})
+ 		} */
+
+ 		//Example 2
+ 		function render(Data = Langs)
+ 		{
+ 			Table.innerHTML = '';
+ 			if(Data.length)
+ 			{
+ 				Data.forEach((elem) => {
+ 					Table.innerHTML += `<div class="collection-item">
+						  				<h4>${elem}</h4>
+						  			</div>`
+ 				});
+ 			}
+ 			else
+ 			{
+ 				Table.innerHTML = '<h3 class="grey-text">No found</h3>'
+ 			}
+ 			
+ 		}
+
+
+ 		Input.onkeyup = function()
+ 		{
+ 			const Search = Langs.filter((elem) => elem.toLowerCase().includes(this.value.toLowerCase()));
+ 			console.log(Search);
+
+ 			render(Search);
+ 		}
+
+
+
+
+	</script>
+	
+</body>
+</html>

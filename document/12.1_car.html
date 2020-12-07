@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<style>
+
+  		body
+  		{
+  			height: 100vh;
+  			background: url(../images/road.jpg);
+  		}
+
+
+  		img
+  		{
+  			margin: auto;
+  			position: absolute; top: 50%; left: 0; right: 0;
+  			height: 150px;
+  			transition: all .5s;
+  		}
+
+
+	</style>
+
+	<img src="../images/car.png" alt="">
+
+
+	<script>
+
+			const Car = document.querySelector('img');
+
+			const Sett = {
+				v: 0,
+				h: 0,
+				dir: 0,
+				t: 0,
+				l: -90,
+				r: 90,
+				b: 180,
+				speed: 10
+			}
+ 			
+ 			document.onkeydown = (e) => {
+ 				console.log(e.keyCode);
+
+
+ 				switch (e.keyCode) {
+ 					case 38: Sett.v--; Sett.dir = Sett.t; break;
+ 					case 40: Sett.v++; Sett.dir = Sett.b; break;
+ 					case 37: Sett.h--; Sett.dir = Sett.l; break;
+ 					case 39: Sett.h++; Sett.dir = Sett.r; break;
+
+ 				}
+
+ 				console.log(Sett);
+
+ 				Car.style.transform = `translate(${Sett.h * Sett.speed}px, ${Sett.v * Sett.speed}px)rotate(${Sett.dir}deg)`;
+
+ 			}
+
+
+
+	</script>
+	
+</body>
+</html>

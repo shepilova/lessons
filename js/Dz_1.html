@@ -1,0 +1,60 @@
+¡<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rock-Paper-Scissors</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		alert('Rock-Paper-Scissors. You can write only r,p or s. Make your choise. And good luck!')
+		
+		const firstUser = prompt('First player, enter your choice:');
+
+		if(firstUser == 'r' || firstUser == 'p' || firstUser == "s"){
+			const secondUser = prompt('Second player, enter your choice:');
+
+			if (secondUser == 'r' || secondUser == 'p' || secondUser == 's'){
+				if (firstUser == secondUser) {
+					alert(`Hooray!!! Nobody wins. It\`s draw.`)
+				} else if (firstUser == 'r' && secondUser =='p') 
+					{
+					alert(`Hooray!!! Second player wins. Paper hits rock.`)
+					} 
+					else if (firstUser == 'r' && secondUser == 's') 
+					{
+					alert(`Hooray!!! First player wins. Rock hits scissors.`)
+					} 
+					else if (firstUser == 'p' && secondUser == 'r') 
+					{
+					alert(`Hooray!!! First player wins. Paper hits rock.`)
+					} 
+					else if (firstUser == 'p' && secondUser == 's') 
+					{
+					alert(`Hooray!!! Second player wins. Scissors hit paper.`)
+					} 
+					else if (firstUser == 's' && secondUser == 'p') 
+					{
+					alert(`Hooray!!! First player wins. Scissors hit paper.`)
+					} 
+					else if (firstUser == 's' && secondUser == 'r') 
+					{
+					alert(`Hooray!!! Second player wins. Rock hits scissors.`)
+					} 
+
+			} else if (secondUser == '') {
+				alert('It`s empty line! Try again. Enter something!!!')
+			} else {
+				alert(`Second player, '${secondUser}' is undefined definition! Try again.`)
+			}
+		} else if (firstUser == '') {
+			alert('It`s empty line! Try again. Enter something!!!')
+		} else {
+			alert(`First player, '${firstUser}' is undefined definition! Try again.`)
+		}	
+
+
+	</script>
+</body>
+</html>

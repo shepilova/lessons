@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dz_4</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		console.log('---1---') //Task 1
+		class Person 
+		{
+			constructor(name, age, job)
+			{
+				this.name = name;
+				this.age = age;
+				this.job = job;
+			}
+
+			getInfo()
+			{
+				console.log(`Person info: ${this.name}, age: ${this.age}, job: ${this.job}`)
+			}
+		};
+
+		const Data = [['John', 23, 'programmer'], ['Alisa', 34, 'yandex'], ['Bob', 30, 'manager'], ['Bill', 45, 'CEO']];
+
+		const Users = [];
+
+		Data.forEach((elem) => {
+			// let personId = 0;
+			Users.push(new Person(elem[0], elem[1], elem[2]))
+			console.log(new Person(elem[0], elem[1], elem[2]))
+		});
+
+		// console.log(Users)
+
+		Users.forEach((elem) => {
+			elem.getInfo()
+		});
+
+		console.log('---2---'); //Task 2
+		console.log('---Function prototype (__proto__)');
+
+		function BrandAuto(brand, country) 
+		{
+			this.brand = brand;
+			this.country = country;
+		};
+
+		function ModelAuto(model, speed, year) 
+		{
+			this.model = model;
+			this.speed = speed;
+			this.year = year;
+			this.getInfo = function()
+			{
+				console.log(`Auto info: ${this.brand}, country: ${this.country}, model: ${this.model}, speed: ${this.speed}, year: ${this.year}.`)
+			}
+		};
+
+		const Honda = new ModelAuto('Civic', 250, 2008);
+		Honda.__proto__ = new BrandAuto('Honda', 'Japan');
+		Honda.getInfo();
+
+		console.log('---Class prototype (extends)');
+
+		class BrandAuto2
+		{
+			constructor(brand, country)
+			{
+				this.brand = brand;
+				this.country = country;
+			}
+		};
+
+		class ModelAuto2 extends BrandAuto2
+		{
+			constructor(brand, country, model, speed, year)
+			{	
+				super(brand, country);
+				this.model = model;
+				this.speed = speed;
+				this.year = year;
+			}
+
+			getInfo()
+			{
+				console.log(`Auto info: ${this.brand}, country: ${this.country}, model: ${this.model}, speed: ${this.speed}, year: ${this.year}.`)
+			}
+		};
+
+		const Mitsubishi = new ModelAuto2('Mitsubishi', 'Japan', 'Lancer', 300, 2020);
+		Mitsubishi.getInfo();
+
+
+		console.log('---3---'); //Task 3
+
+		let str = 'Hello my name is Steve Jobs. I am cool programmer!';
+		let letters = 'h,l,m,n,s,t,v,j,b,c,p,r,g';
+		let count = 0;
+		console.log(str);
+
+		str.split('').forEach((elem) => {
+			if (letters.includes(elem.toLowerCase())) {
+				count += 1;
+			}
+		})
+
+		console.log(count);
+
+
+	</script>
+	
+</body>
+</html>

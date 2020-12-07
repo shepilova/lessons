@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<a href="https://google.com">link</a>
+
+
+	<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, nulla architecto voluptatem quasi voluptas id, quos ducimus repellat numquam, magni omnis ipsa! Accusamus commodi alias laudantium officia ipsam, in harum iusto, eum facilis necessitatibus placeat aspernatur, magni vero quidem ea, qui delectus blanditiis! Porro nostrum, illum nam at maiores dignissimos, ad iste! Tempora, quis nostrum error officiis atque. Tenetur adipisci quos rem, aut velit totam corrupti dolorum cupiditate esse sequi molestiae porro sapiente nesciunt corporis accusantium atque nulla tempore quas ducimus! Sapiente minus nostrum facere ullam, totam rerum optio doloremque numquam iusto incidunt suscipit molestias laborum placeat magni! Fuga deserunt neque quisquam ipsa nihil assumenda eius ullam optio, reiciendis et qui dolore maxime nemo natus possimus accusantium quia quidem corrupti mollitia necessitatibus, nam? Neque, doloremque fugiat voluptas. Optio iste voluptatibus nisi repellendus, quod, labore itaque eius nulla maiores dolores error aliquid veritatis dolorem, doloribus placeat facilis dolore a sint amet, rem! Illo delectus harum vitae, atque officiis fuga mollitia sapiente. Odit ipsam magnam sunt necessitatibus possimus vel cum voluptates cumque placeat, dolorum illo aliquam, in molestiae excepturi ea, nihil illum quo minus nulla iusto veniam facere, quisquam et. Quo excepturi dolorem sed earum harum corrupti aperiam molestias fugit ullam minus.</p>
+
+
+	<form action="">
+		<input type="text" name="username">
+		<button>send</button>
+	</form>
+
+
+	<script>
+
+		document.querySelector('a').onclick = (e) => {
+			e.preventDefault();
+		}
+
+		document.oncontextmenu = (e) => {
+			e.preventDefault();
+
+			alert('right click blocked');
+		}
+
+		document.querySelector('p').onmousedown = (e) => {
+			e.preventDefault();
+		}
+
+
+		document.querySelector('form').onsubmit = (e) => {
+			/*e.preventDefault();
+
+			alert('form send'); */
+
+			if(!document.querySelector('input').value.trim())
+			{
+				alert('useraname empty!!!');
+				return false;
+			}
+
+			alert('ok');
+
+		}
+
+
+
+	</script>
+	
+</body>
+</html>

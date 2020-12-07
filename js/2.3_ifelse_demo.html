@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+ 		//alert('mess');
+ 		//confirm('mess');
+ 		//prompt('mess');
+
+ 		const a = +prompt('Enter A:');
+
+ 		if(a)
+ 		{
+ 			const b = +prompt('Enter B:');
+
+ 			if(b)
+ 			{
+ 				//let result = Number(a) + Number(b);
+ 				//let result = a + b;
+ 				//alert(`Result: ${result}`);
+
+ 				const action = prompt('Enter action ( + - * / )');
+ 				let result; //undefined
+
+ 				switch(action)
+ 				{
+ 					case '+': result = a + b; break;
+ 					case '-': result = a - b; break;
+ 					case '*': result = a * b; break;
+ 					case '/': result = a / b; break;
+ 					default: alert('Incorrect action');
+ 				}
+
+ 				if(result)
+ 					alert(`Result: ${result}`);
+ 			}
+ 			else
+ 			{
+ 				alert('B is empty');
+ 			}
+ 		}
+ 		else
+ 		{
+ 			alert('A is empty');
+ 		}
+
+
+	</script>
+	
+</body>
+</html>

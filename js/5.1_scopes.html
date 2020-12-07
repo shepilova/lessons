@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+		let a = 10; //global
+
+		function fn1() //global
+		{
+			//let a = 20; //local
+
+			fn3();
+
+			console.log(a);
+
+			function fn2() //local
+			{
+				//let a = 30;
+
+				console.log(a);
+
+				let b = 12;
+
+				fn3();
+			}
+
+			fn2();
+
+			//console.log(b);
+		}
+
+		console.log(a);
+
+		fn1();
+
+		function fn3()
+		{
+			console.log('fn3');
+		}
+
+		//fn3();
+
+		//fn2();
+
+
+		var x = 10;
+
+		if(true)
+		{
+			var x = 20;
+			console.log(x);
+		}
+
+		console.log(x);
+
+		//let y = 30;
+
+		if(true)
+		{
+			let y = 40;
+			console.log(y);
+		}
+
+		console.log(y);
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

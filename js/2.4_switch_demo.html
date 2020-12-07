@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<a href="2.4_switch_demo.html">Home</a>
+	<a href="2.4_switch_demo.html?page=about">About</a>
+	<a href="2.4_switch_demo.html?page=news">News</a>
+	<a href="2.4_switch_demo.html?page=contacts">Contact</a>
+
+	<hr>
+
+	<h1>page title</h1>
+
+	<script>
+
+		const URL = window.location.search.split('=').pop();
+
+		console.log(URL);
+
+		let Page;
+
+		switch(URL)
+		{
+			case '': Page = 'Home page'; break;
+			case 'about': Page = 'About us'; break;
+			case 'news': Page = 'All news'; break;
+			case 'contacts': Page = 'Contacts'; break;
+			default: Page = '404. Not found.';
+		}
+
+		document.querySelector('h1').textContent = Page;
+		document.title = Page;
+
+	</script>
+	
+</body>
+</html>

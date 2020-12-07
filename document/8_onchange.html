@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<h1>...</h1>
+
+	<!--<input type="text"> -->
+	<!--<input type="range" min="0" max="100" step="1" value="0"> -->
+
+	<!--<input type="checkbox"> -->
+
+	<!--<input type="radio" name="color" value="Red">
+	<input type="radio" name="color" value="Black"> -->
+
+	<!--<select>
+		<option value="Kiev">Kiev City</option>
+		<option value="Odessa">Odessa City</option>
+		<option value="Moscow">Moscow City</option>
+	</select> -->
+
+	<!--<input type="date" value="2020-12-31"> -->
+
+	<input type="file">
+
+
+	<script>
+		const Out = document.querySelector('h1');
+
+		//const El = document.querySelector('[type="text"]');
+
+		/*El.onchange = function()
+		{
+			Out.textContent = this.value;
+		}*/
+
+		/*const El = document.querySelector('[type="range"]');
+
+		El.onchange = function()
+		{
+			Out.textContent = this.value;
+		} */
+
+
+		/*const El = document.querySelector('[type="checkbox"]');
+
+		El.onchange = function()
+		{
+			Out.textContent = this.checked ? 'On' : 'Off';
+		} */
+
+		/*const El = document.querySelectorAll('[type="radio"]');
+
+		El.forEach((radio) => {
+
+			radio.onchange = function()
+			{
+				Out.textContent = this.value;
+			}
+
+		})*/
+
+		//const El = document.querySelector('select');
+
+		//El[1].selected = true;
+
+		/*El.onchange = function()
+		{
+			//Out.textContent = this.value;
+
+			for(let option of this.children)
+			{
+				if(option.selected)
+					Out.textContent = option.textContent;
+			}
+
+		} */
+
+		/*const El = document.querySelector('[type="date"]');
+
+		El.onchange = function()
+		{
+			Out.textContent = this.value.split('-').reverse().join('.');
+		} */
+
+		const El = document.querySelector('[type="file"]');
+
+		El.onchange = function()
+		{
+			//Out.textContent = this.value;
+
+			if(this.files[0].type == 'image/jpeg')
+				Out.textContent = 'Correct';
+			else
+				Out.textContent = 'Incorrect';
+		}
+
+
+
+	</script>
+	
+</body>
+</html>

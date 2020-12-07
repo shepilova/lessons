@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+
+   		class User
+   		{
+   			#name = ''
+   			#age = 18
+   			#secret = 'password12345'
+
+   			set name(param)
+   			{
+   				if(typeof param == 'string')
+   					this.#name = param.trim().toLowerCase();
+   			}
+
+   			set age(param)
+   			{
+   				if(typeof param == 'number' && param >= 18 && param <= 70)
+   					this.#age = param;
+   			}
+
+   			get name()
+   			{
+   				return this.#name;
+   			}
+
+   			getSecret(auth_key)
+   			{
+   				if(auth_key == 'gena')
+   					return this.#secret;
+   				else
+   					return 'Access denied';
+   			}
+   		}
+
+   		const Bill = new User();
+
+   		Bill.name = '      BiLl    ';
+   		//Bill.name = 10;
+   		//Bill.age = 'test';
+   		Bill.age = 25;
+
+   		console.log(Bill);
+   		console.log(Bill.name);
+
+   		console.log(Bill.getSecret('gena'));
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

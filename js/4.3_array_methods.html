@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+		const Countrys = ['Ukraine', 'France', 'Russia', 'Japan', 'China'];
+
+		const Nums = [0, 12, 34, 21, 45, 32, 54];
+
+		const Products = [
+  			{title: 'Orange', price: 12, cat: 1},
+  			{title: 'Apple', price: 22, cat: 1},
+  			{title: 'Tomat', price: 13, cat: 2},
+  			{title: 'Banana', price: 32, cat: 1 },
+  			{title: 'Beet', price: 3, cat: 2}
+  		];
+
+  		Countrys.forEach(function(elem, index) {
+  			console.log(elem, index);
+  		});
+
+  		Products.forEach((elem, index) => {
+  			console.log(elem.title, elem.price, index);
+  		});
+
+  		const Max = Nums.filter((elem) => elem > 20);
+
+  		console.log(Max);
+
+  		const Max2 = [];
+
+  		Nums.forEach((elem) => {
+  			if(elem > 20)
+  				Max2.push(elem);
+  		});
+
+  		console.log(Max2);
+
+  		const Fruits = Products.filter(function(elem) {
+  			return elem.cat == 1 || elem.title == 'Tomat';
+  		})
+
+  		console.log(Fruits);
+
+      function filterCategory(elem, index, category)
+      {
+        return elem.cat == category || elem.title == 'Tomat';
+      }
+
+      const Fruits2 = Products.filter((elem, index) => filterFruit(elem, index, 1));
+
+
+
+  		const J = Countrys.find((elem) => elem == 'Japan1');
+  		console.log(J);
+
+  		const A = Products.find((elem) => elem.title == 'Apple');
+  		console.log(A);
+
+  		const CountrysHTML = Countrys.map((elem) => `<h1>${elem.toUpperCase()}</h1>`)
+  		console.log(CountrysHTML);
+
+  		const Prices = Products.map((elem) => {
+  			if(elem.price > 10)
+  				return elem.price
+  		});
+  		console.log(Prices);
+
+  		const ProductsUAH = Products.map((elem) => {
+  			return { name: elem.title.toUpperCase(), price: elem.price, priceUAH: elem.price * 28, cat: elem.cat }
+  		});
+
+  		console.log(ProductsUAH);
+
+  		const Sum = Nums.reduce((a, b) => {
+  			console.log(a, b);
+  			return a + b;
+  		});
+
+  		console.log(Sum);
+
+
+
+
+	</script>
+	
+</body>
+</html>

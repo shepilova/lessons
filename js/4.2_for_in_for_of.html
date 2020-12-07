@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+		const Countrys = ['Ukraine', 'France', 'Russia', 'Japan', 'China'];
+
+		const Products = [
+  			{title: 'Orange', price: 12},
+  			{title: 'Apple', price: 22},
+  			{title: 'Banana', price: 32}
+  		];
+
+  		for(let i = 0; i < Countrys.length; i++)
+  		{
+  			console.log(Countrys[i]);
+  		}
+
+  		let i = 0;
+
+  		while(i < Products.length)
+  		{
+  			console.log(Products[i].title);
+  			i++;
+  		}
+
+
+
+  		//ES6
+
+  		for(let index in Countrys)
+  		{
+  			console.log(Countrys[index]);
+  		}
+
+  		for(let elem of Countrys)
+  		{
+  			console.log(elem);
+  		}
+
+  		for(let elem of Products)
+  		{
+  			console.log(elem.title);
+  		}
+
+
+
+  		const User = {
+  			name: 'Ivan',
+  			age: 23,
+  			cat: 'Barsik'
+  		}
+
+  		let x = 'dog';
+
+  		User[x] = 'Sharik';
+
+  		console.log(User);
+
+  		for(let i = 0; i < 3; i++)
+  		{
+  			console.log(User[i]);
+  		}
+
+  		/*for(let elem of User)
+  		{
+  			console.log(elem);
+  		}*/
+
+  		for(let key in User)
+  		{
+  			console.log(key, User[key]);
+  		}
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

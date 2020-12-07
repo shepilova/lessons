@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+  		
+  		helloMess('Bill');
+
+  		function helloMess()
+  		{
+  			console.log('Hello');
+  		}
+
+  		function helloMess(name)
+  		{
+  			console.log(`Hello ${name} !`);
+  		}
+
+  		helloMess('John'); //call
+  		helloMess('Elena');
+
+  		//ES6
+
+  		//fn1();
+
+  		const fn1 = function()
+  		{
+  			console.log('fn1');
+  		}
+
+  		const fn2 = () => {
+  			return console.log('fn2');
+  		}
+
+  		const fn3 = (a, b) => console.log('fn3', a, b); //return
+
+  		const fn4 = a => console.log(a);
+
+  		fn1();
+  		fn2();
+  		fn3(1,2);
+  		fn4('fn4');
+
+
+  		let a = 10,
+  			b = 12;
+
+  		//let res1 = a + b;
+  		//console.log(res1);
+
+  		let x = 23,
+  			y = 32;
+
+  		//let res2 = x + y;
+  		//console.log(res2);
+
+  		function calc(a = 0, b = 0)
+  		{
+  			/*if(!arg1)
+  				arg1 = 0;
+  			if(!arg2)
+  				arg2 = 0;*/
+
+  			let res = a + b;
+  			console.log(res);
+  		}
+
+  		calc(a, b);
+  		calc(x, y);
+  		calc(x);
+  		calc();
+
+
+
+	</script>
+
+	
+</body>
+</html>

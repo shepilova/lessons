@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+
+
+	<div class="container row">
+		<h3>Filter App</h3>
+		<div class="col s3">
+   			<label>Continent:</label>
+   			<select name="continent" style="display: block;"></select>
+		</div>
+		<div class="col s3 offset-s1">
+   			<label>Country:</label>
+   			<select name="country" style="display: block;" disabled></select>
+		</div>
+		<div class="col s3 offset-s1">
+   			<label>City:</label>
+   			<select name="city" style="display: block;" disabled></select>
+		</div>
+	</div>
+
+
+	<script>
+
+   		const Continents = [
+   			{id: 1, title: 'Europa'},
+   			{id: 2, title: 'Asia'},
+   			{id: 3, title: 'America'}
+   		];
+
+   		const Countrys = [
+   			{id: 1, title: 'Ukraine', c_id: 1},
+   			{id: 2, title: 'USA', c_id: 3},
+   			{id: 3, title: 'China', c_id: 2},
+   			{id: 4, title: 'Germany', c_id: 1},
+   			{id: 5, title: 'Canada', c_id: 3},
+   			{id: 6, title: 'Japan', c_id: 2}
+   		];
+
+   		const Citys = [
+   			{title: 'Kiev', c_id: 1},
+   			{title: 'LA', c_id: 2},
+   			{title: 'Pekin', c_id: 3},
+   			{title: 'NY', c_id: 2},
+   			{title: 'Odessa', c_id: 1},
+   			{title: 'Berlin', c_id: 4},
+   			{title: 'Toronto', c_id: 5},
+   			{title: 'Otava', c_id: 5},
+   			{title: 'Dezden', c_id: 4},
+   			{title: 'Tokio', c_id: 6},
+   			{title: 'Hirosima', c_id: 6},
+   			{title: 'HonKong', c_id: 3}
+   		];
+
+   		const Sel = document.querySelectorAll('select');
+
+   		Sel.forEach((select) => {
+   			select.onchange = function()
+   			{
+   				switch(this.name)
+               {
+                  case 'continent': filterData(Sel[1], Countrys, this.value); break;
+                  case 'country': filterData(Sel[2], Citys, this.value); break;
+               }
+   			}
+   		});
+
+         function filterData(Selector, Data, id)
+         {
+            if(Selector == Sel[1])
+            {
+               Sel[2].disabled = true;
+               Sel[2].textContent = '';
+            }
+
+            Selector.disabled = false;
+
+            Data = Data.filter((elem) => elem.c_id == id);
+
+            render(Selector, Data);
+         }
+         
+
+   		function render(Selector = Sel[0], Data = Continents)
+   		{
+   			Selector.textContent = '';
+   			Data.forEach((elem) => {
+   				Selector.innerHTML += `<option value="${elem.id}">${elem.title}</option>`
+   			})
+	   	};
+
+	   	render();
+
+
+
+
+	</script>
+	
+</body>
+</html>

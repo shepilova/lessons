@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<style>
+  		
+  		div
+  		{
+  			margin: 50px;
+  			width: 300px;
+  			height: 300px;
+  			background: #000;
+  		}
+
+
+	</style>
+
+	<div></div>
+
+	<p></p>
+
+	<hr>
+	<h4>Background:</h4>
+	<label>Red: <input type="range" id="color_r" min="0" max="255" value="0" step="1"></label>
+	<label>Green: <input type="range" id="color_g" min="0" max="255" value="0" step="1"></label>
+	<label>Blue: <input type="range" id="color_b" min="0" max="255" value="0" step="1"></label>
+
+	<h4>Size:</h4>
+	<label>Width: <input type="number" id="w" min="0" max="1000" value="300" step="1"></label>
+	<label>Height: <input type="number" id="h" min="0" max="1000" value="300" step="1"></label>
+
+	<h4>Radius:</h4>
+	<label>Top Left: <input type="range" id="tl" min="0" max="50" value="0" step="1"></label>
+	<label>Top Right: <input type="range" id="tr" min="0" max="50" value="0" step="1"></label>
+	<label>Bottom Right: <input type="range" id="br" min="0" max="50" value="0" step="1"></label>
+	<label>Bottom Left: <input type="range" id="bl" min="0" max="50" value="0" step="1"></label>
+
+	<h4>Shadow:</h4>
+	<label>Horizontal: <input type="range" id="shadow_h" min="-50" max="50" value="0" step="1"></label>
+	<label>Vertical: <input type="range" id="shadow_v" min="-50" max="50" value="0" step="1"></label>
+	<label>Size: <input type="range" id="shadow_s" min="0" max="50" value="0" step="1"></label>
+	<label>Blur: <input type="range" id="shadow_b" min="0" max="50" value="0" step="1"></label>
+	<label>Color: <input type="color" id="shadow_c" value="#000"></label>
+	<label>Inset: <input type="checkbox" id="shadow_i"></label>
+
+	<script>
+
+		const El = document.querySelector('div');
+		const CssCode = document.querySelector('p');
+
+		const Sett = {
+			color_r: 0,
+			color_g: 0,
+			color_b: 0,
+			w: 300,
+			h: 300,
+			tl: 0,
+			tr: 0,
+			br: 0,
+			bl: 0,
+			shadow_h: 0,
+			shadow_v: 0,
+			shadow_s: 0,
+			shadow_b: 0,
+			shadow_c: '#000',
+			shadow_i: ''
+
+		}
+
+		document.querySelectorAll('input').forEach((elem) => {
+			if(elem.type == 'checkbox')
+			{
+				elem.onchange = function()
+				{
+					if(this.checked)
+						Sett.shadow_i = 'inset';
+					else
+						Sett.shadow_i = '';
+					render();
+				}
+			}
+			else if(elem.type == 'color')
+			{
+				elem.onchange = function()
+				{
+					Sett.shadow_c = this.value;
+					render();
+				}
+			}
+			else
+			{
+				elem.oninput = function()
+				{
+					Sett[this.id] = +this.value;
+
+					console.log(Sett);
+
+					render();
+				}
+			}
+
+			
+		});
+
+		function render()
+		{
+			El.style.cssText = `background: rgb(${Sett.color_r}, ${Sett.color_g}, ${Sett.color_b});
+								width: ${Sett.w}px;
+								height: ${Sett.h}px;
+								border-radius: ${Sett.tl}% ${Sett.tr}% ${Sett.br}% ${Sett.bl}%;
+								box-shadow: ${Sett.shadow_i} ${Sett.shadow_h}px ${Sett.shadow_v}px ${Sett.shadow_b}px ${Sett.shadow_s}px ${Sett.shadow_c};
+
+			`
+
+			CssCode.textContent = `background: rgb(${Sett.color_r}, ${Sett.color_g}, ${Sett.color_b});`
+
+		}
+
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<select></select>
+
+
+	<script>
+
+  		//ES5
+  		var arr = new Array(12, 'text', {});
+
+  		//ES6
+  		const Countrys = ['Ukraine', 'France'];
+
+  		//Add
+  		Countrys.push('Russia'); //add end
+  		Countrys.unshift('USA'); //add start
+  		Countrys.splice(2, 0, 'China'); //index, count delete items, value
+
+  		//Add / Update
+  		//Countrys[10] = 'Japan';
+  		//Countrys[2] = 'Germany';
+  		//Countrys.splice(2, 2, 'Germany');
+
+  		//Delete
+  		//Countrys.pop();
+  		//let el = Countrys.pop();
+
+  		//Countrys.shift();
+  		//let el = Countrys.shift();
+
+  		//Countrys.splice(2,2);
+  		//let el = Countrys.splice(2, 2);
+
+  		//delete Countrys[2];
+
+  		//console.log(el);
+
+  		console.log(Countrys);
+  		console.log(Countrys[1].toUpperCase());
+
+  		const Products = [
+  			{title: 'Orange', price: 12},
+  			{title: 'Apple', price: 22},
+  			{title: 'Banana', price: 32}
+  		];
+
+  		//to String
+  		let str1 = Countrys.toString();
+  		console.log(str1);
+
+  		let str2 = Countrys.join('-');
+  		console.log(str2);
+
+  		let str3 = JSON.stringify(Countrys);
+  		console.log(str3);
+
+  		let str4 = Products.join('-');
+  		console.log(str4);
+
+  		let str5 = JSON.stringify(Products);
+  		console.log(str5);
+
+
+  		//to Array
+  		let arr1 = str1.split(',');
+  		console.log(arr1);
+
+  		let arr2 = str5.split(',');
+  		console.log(arr2);
+
+  		let arr3 = JSON.parse(str5);
+  		console.log(arr3);
+
+  		let PrivatStr = '[{"ccy":"USD","base_ccy":"UAH","buy":"28.05000","sale":"28.45000"},{"ccy":"EUR","base_ccy":"UAH","buy":"33.10000","sale":"33.70000"},{"ccy":"RUR","base_ccy":"UAH","buy":"0.35500","sale":"0.38200"},{"ccy":"BTC","base_ccy":"USD","buy":"12155.5160","sale":"13435.0440"}]';
+
+  		let arr4 = JSON.parse(PrivatStr);
+  		console.log(arr4);
+  		console.log(arr4[0].buy);
+
+  		let Nums = [1,2,3,[4,5,[6,7,[8,9]]]];
+
+  		arr4.forEach((elem) => {
+  			document.querySelector('select').innerHTML += `<option value="${elem.sale}">${elem.ccy}</option>`
+  		});
+
+  		let All = Countrys.concat(Products);
+  		console.log(All);
+
+  		console.log(Countrys.sort());
+  		console.log(Countrys.reverse());
+
+  		console.log(Countrys.indexOf('France'));
+  		console.log(Countrys.includes('France1'));
+  		//console.log(Countrys.slice(2, 4));
+
+  		console.log(Nums);
+  		console.log(Nums.flat());
+  		console.log(Nums.flat(3));
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

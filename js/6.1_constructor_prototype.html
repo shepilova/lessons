@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+
+ 		let a = 10;
+ 		let b = a;
+
+ 		b = b + 2;
+
+ 		console.log(a, b);
+
+
+ 		/*const Vasya = {
+ 			name: 'Vasya',
+ 			age: 25
+ 		}
+
+ 		const Dima = Vasya;
+
+ 		Dima.name = 'Dima'; */
+
+
+ 		function User(arg1, age, gender = 'man') //prototype
+ 		{
+ 			this.name = arg1;
+ 			this.age = age;
+ 			this.gender = gender;
+ 			this.citizen = 'Ukraine';
+ 			this.hello = function()
+ 			{
+ 				console.log(`Hello. I am ${this.name}`)
+ 			}
+ 		}
+
+ 		function User1()
+ 		{
+
+ 		}
+
+ 		const Vasya = new User('Vasya', 25);
+ 		const Dima = new User('Dima', 32);
+
+ 		const Alisa = new User('Alisa', 22, 'woman');
+
+ 		Alisa.citizen = 'USA';
+
+ 		Alisa.hello();
+
+
+ 		console.log(Vasya);
+ 		console.log(Dima);
+ 		console.log(Alisa);
+
+
+
+	</script>
+	
+</body>
+</html>
