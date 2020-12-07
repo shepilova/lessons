@@ -96,30 +96,27 @@
 
 		};
 
-		function renderMessage(message) {
-			
-		}
+		function renderMessage(message) 
+		{
+			Message.classList.add('red-text');
+			Message.textContent = message;
+			return Message;
+		};
 		
-		function clearForm() {
-			Inputs.forEach((elem) => {
+		function clearForm() 
+		{
+			Inputs.forEach((elem) => 
+			{
 				elem.value = '';
 			});
 		};
 
-		function ifBlank() {
-			Inputs.forEach((elem) => {
-				if (!elem.value) 
-				{
-					console.log('field is blank', elem);
-					Message.classList.add('red-text');
-					Message.textContent = "Fill in all fields"
-				}
-				else 
-				{	
-					Message.classList.add('green-text');
-					Message.textContent = 'hhh';
-				}
-			});
+		function checkPassw() 
+		{
+			if (pass1.value !== pass2.value) 
+			{
+				console.log('no')
+			}
 		};
 
 	</script>
