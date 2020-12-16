@@ -88,19 +88,42 @@
 			password: '',
 		};
 
+
+		Inputs.forEach((elem) => {
+			elem.oninput = function()
+			{
+				Model[this.id] = this.value;
+				console.log(Model);
+			}
+		});
+
 		let Data = [];
 
 		Form.onsubmit = function (event)
 		{
 			event.preventDefault();
-
+			checkEmpty();
+			checkPassw();
 		};
 
-		function renderMessage(message) 
+		function checkEmpty() {
+			Inputs.forEach((elem) => {
+				if(!elem.value)
+				{
+					renderMessage("Fields cannot be empty!", 'red-text')
+					return;
+				}
+				else
+				{
+					renderMessage("Welcomee!", 'green-text')
+				}
+			});
+		}
+
+		function renderMessage(message, color) 
 		{
-			Message.classList.add('red-text');
+			Message.classList.add(color);
 			Message.textContent = message;
-			return Message;
 		};
 		
 		function clearForm() 
@@ -115,7 +138,11 @@
 		{
 			if (pass1.value !== pass2.value) 
 			{
-				console.log('no')
+				renderMessage("Passwords don't match!", 'red-text')
+			}
+			else
+			{
+				renderMessage("Welcome!", 'green-text')
 			}
 		};
 

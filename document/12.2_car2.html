@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<style>
+
+		@keyframes road
+		{
+			from
+			{
+				background-position: 0 0;
+			} 
+			to
+			{
+				background-position: 0 100%;
+			}
+		}
+
+
+  		body
+  		{
+  			height: 100vh;
+  			background: url(../images/road.jpg);
+
+  			/*animation: road 2s infinite;*/
+  		}
+
+  		.run
+  		{
+  			animation: road 2s linear infinite;
+  		}
+
+
+  		img
+  		{
+  			margin: auto;
+  			position: absolute; top: 50%; left: 0; right: 0;
+  			height: 150px;
+  			transition: all .5s;
+  		}
+
+
+	</style>
+
+	<img src="../images/car.png" alt="">
+
+
+	<script>
+
+			const Car = document.querySelector('img');
+
+			const Sett = {
+				run: false,
+				h: 0,
+				
+				speed: 10
+			}
+ 			
+ 			document.onkeydown = (e) => {
+ 				console.log(e.keyCode);
+
+
+ 				switch (e.keyCode) {
+ 					case 38: Sett.run = true;  break;
+ 					case 40: Sett.run = false;  break;
+ 					case 37: Sett.h--;  break;
+ 					case 39: Sett.h++;  break;
+
+ 				}
+
+ 				console.log(Sett);
+
+ 				if(Sett.run)
+ 					document.body.classList.add('run');
+ 				else
+ 					document.body.classList.remove('run');
+
+ 				Car.style.transform = `translateX(${Sett.h * Sett.speed}px)`;
+
+ 			}
+
+
+
+	</script>
+	
+</body>
+</html>
