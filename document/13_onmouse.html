@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<style>
+
+		/**
+		{
+			cursor: none;
+		}*/
+
+		div
+		{
+			margin: 100px;
+			width: 30px;
+			height: 30px;
+			background: orange;
+
+			border-radius: 50%;
+		}
+
+
+
+	</style>
+
+	<div></div>
+
+	<h1>0</h1>
+
+
+	<script>
+
+		const El = document.querySelector('div');
+
+		El.onmouseover = function()
+		{
+			this.style.background = 'green';
+		}
+
+		El.onmouseout = function()
+		{
+			this.style.background = 'red';
+		}
+
+		El.onmousedown = function()
+		{
+			this.style.background = 'grey';
+		}
+
+		El.onmouseup = function()
+		{
+			this.style.background = 'red';
+		}
+
+		/*document.onmousemove = function(e)
+		{
+			//console.log(e);
+
+			El.style.transform = `translate(${e.clientX - 115}px, ${e.clientY - 115}px)`
+		} */
+
+		document.oncontextmenu = function()
+		{
+			alert('right click');
+		}
+
+		let counter = 0;
+		document.onmousewheel = function(e)
+		{
+			console.log(e);
+
+			e.deltaY > 0 ? counter++ : counter < 1 ? counter = 0 : counter--;
+
+
+			document.querySelector('h1').textContent = counter;
+
+			El.style.transform = `scale(1.${counter})`
+		}
+
+
+
+	</script>
+	
+</body>
+</html>

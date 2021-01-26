@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<style>
+
+		@keyframes road
+		{
+			from
+			{
+				background-position: 0 0;
+			} 
+			to
+			{
+				background-position: 0 100%;
+			}
+		}
+
+
+  		body
+  		{
+  			height: 100vh;
+  			background: url(../images/road.jpg);
+
+  			/*animation: road 2s infinite;*/
+  		}
+
+  		.run
+  		{
+  			animation: road 2s linear infinite;
+  		}
+
+
+  		img
+  		{
+  			margin: auto;
+  			position: absolute; top: 50%; left: 0; right: 0;
+  			height: 150px;
+  			transition: all .5s;
+  		}
+
+  		.toolbar
+  		{
+  			position: fixed; bottom: 50px; left: 50px;
+  			padding: 20px;
+  			background: #456;
+
+  			width: 250px;
+  		}
+
+  		.toolbar p
+  		{
+  			font-size: 22px;
+  			color: #fc0;
+  		}
+
+
+	</style>
+ 
+	<img src="../images/car.png" alt="">
+
+	<div class="toolbar">
+ 		<p>Speed: <span id='t_clock'>0</span></p>
+ 		<p>Transmission: <span id="t_speed">N</span></p>
+ 		<p>Direction: <span id="t_dir">F</span></p>
+	</div>
+
+
+	<script>
+
+			const Car = document.querySelector('img');
+
+			const Road = document.body;
+
+			const Transmission = document.querySelector('#t_speed');
+			const Direction = document.querySelector('#t_dir');
+			const Clock = document.querySelector('#t_clock');
+
+			const Sett = {
+				run: false,
+				h: 0,
+				speed_h: 20,
+				speed: 3,
+				s1: 3,
+				s2: 2,
+				s3: 1.5,
+				s4: 1,
+				s5: 0.7,
+				dir: 'forward',
+				d1: 'forward',
+				d2: 'reverse',
+				trans: 'n',
+				clock: 0,
+			}
+ 			
+ 			document.onkeydown = (e) => {
+ 				// console.log(e.keyCode);
+
+ 				switch (e.keyCode) {
+ 					case 37: Sett.h--;  break;
+ 					case 39: Sett.h++;  break;
+ 				}
+
+ 				render();
+
+ 			}
+
+ 			document.onkeyup = (e) => {
+
+ 				// console.log(e.keyCode);
+
+ 				switch (e.keyCode) {
+ 					case 32: Sett.run = !Sett.run; break;
+
+ 					case 49: Sett.speed = Sett.s1; Sett.trans = 1; Sett.clock = 30; break;
+ 					case 50: Sett.speed = Sett.s2; Sett.trans = 2; Sett.clock = 50; break;
+ 					case 51: Sett.speed = Sett.s3; Sett.trans = 3; Sett.clock = 70; break;
+ 					case 52: Sett.speed = Sett.s4; Sett.trans = 4; Sett.clock = 90; break;
+ 					case 53: Sett.speed = Sett.s5; Sett.trans = 5; Sett.clock = 120; break;
+
+ 					case 38: Sett.dir = Sett.d1; break;
+ 					case 40: Sett.dir = Sett.d2; break;
+ 					
+ 				}
+
+ 				render();
+ 			}
+
+
+ 			function render()
+ 			{
+ 				if(Sett.run)
+ 				{
+ 					Road.style.animation = `road ${Sett.speed}s infinite`;
+ 					Road.style.animationTimingFunction = 'linear';
+ 					Road.style.animationDirection = Sett.dir;
+ 					change_clock();
+ 				}
+ 				else
+ 				{
+ 					Sett.trans = 'N';
+ 					Road.style.animation = 'none';
+ 					Sett.clock = 0;
+ 				}
+
+ 				Transmission.textContent = Sett.trans;
+ 				Direction.textContent = Sett.dir;
+ 				
+
+ 				Car.style.transform = `translateX(${Sett.h * Sett.speed_h}px)`;
+ 			}
+
+    		let count = 0;
+
+			function change_clock() 
+			{	
+    			if(count == Sett.clock)
+    			{
+    				return;
+    			}
+    			else
+    			{
+    				count ++;
+    				Clock.textContent = count;
+    			}
+    			
+    			setTimeout(change_clock, 50);
+			}
+
+			// change_clock()			
+
+	</script>
+	
+</body>
+</html>
